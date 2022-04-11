@@ -10,8 +10,8 @@ const AlbumList = ( props ) => {
     const [tracks, setTracks] = useState('')
 
     const prepareSearchQuery = (query) => {
-      const url = `${BASE_URL}/search/album?q=${query}&limit=5`;
-      return encodeURI(url)
+      const preUrl = `${BASE_URL}/search/album?q=${query}&limit=5`;
+      return encodeURI(preUrl)
   }
 
     const getData = async () => {
@@ -43,7 +43,7 @@ const AlbumList = ( props ) => {
                         <p className='artist-name'>{album.title}</p>
                     </div>)}
             </div>
-            <Album selectedAlbum={tracks} />
+            {tracks && <Album selectedAlbum={tracks} />}
         </div>
         
     )

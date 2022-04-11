@@ -18,13 +18,10 @@ const Album = ( props ) => {
         getData()
     }, [tracklist]);
 
-    const getYear = (e) => {
-      return new Date(e).toISOString().split('T')[0]
-    }
-
     if (!album) {
         return;
     }
+
     return (
         <div>
           <table className='tracks-table'>
@@ -43,7 +40,7 @@ const Album = ( props ) => {
                   <td>{track.title}</td>
                   <td>{track.artist.name}</td>
                   <td>{secondToMinute(track.duration)}</td>
-                  <td>2011</td>
+                  <td>{new Date(track.release_date).getFullYear()}</td>
               </tr>
             </tbody>
             )}

@@ -8,13 +8,6 @@ input[type=text] {
     color: rgb(82, 78, 78);
   }
 
-.search-container {
-    width: 80%;
-    color: green;
-    padding: 12px 20px;
-    margin: 8px 0;
-}
-
 .search-result-container {
     float: left;
     padding: 12px 20px;
@@ -35,5 +28,4 @@ input[type=text] {
 p {
     background-color: rgb(36, 33, 33);
     color: rgb(82, 78, 78);
-
 }
