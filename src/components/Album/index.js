@@ -5,7 +5,6 @@ import { secondToMinute } from '../../utils/secondToMinute'
 
 const Album = ( props ) => {
     const tracklist = props.selectedAlbum;
-    const albumTitle = props.albumTitle;
     const [album, setAlbum] = useState([])
 
     const getData = async () => {
@@ -25,7 +24,6 @@ const Album = ( props ) => {
 
     return (
         <div>
-          <h1>{albumTitle}</h1>
           <table className='tracks-table'>
             <thead>
               <tr>
