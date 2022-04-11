@@ -1,0 +1,15 @@
+.list {
+    background-color: white;
+}
+
+.albums-result-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 18px;
+}
+
+.artist-name {
+    color: rgb(6, 250, 250);
+    background: transparent;
+}
