@@ -15,8 +15,7 @@ const AlbumList = ( props ) => {
   }
 
     const getData = async () => {
-      const URL = prepareSearchQuery(props.selectedArtist);
-      console.log(URL)
+        const URL = prepareSearchQuery(props.selectedArtist);
         const response = await axios.get(URL).catch((error) => {
             console.log('Error: ', error);
         });
@@ -37,13 +36,14 @@ const AlbumList = ( props ) => {
 
     return ( 
         <div>
-           <div className='albums-result-container'>
-                    {albums.map((album) => <div key={album.id} onClick={() => albumClick(album.tracklist)} >
-                        <img src={album.cover_medium} alt='Album-cover' />
-                        <p className='artist-name'>{album.title}</p>
-                    </div>)}
+            <h1>Search result for {props.selectedArtist}</h1>
+            <div className='albums-result-container'>
+                        {albums.map((album) => <div key={album.id} onClick={() => albumClick(album.tracklist)} >
+                            <img src={album.cover_medium} alt='Album-cover' />
+                            <p className='artist-name'>{album.title}</p>
+                        </div>)}
             </div>
-            {tracks && <Album selectedAlbum={tracks} />}
+            {tracks && <Album selectedAlbum={tracks}/>}
         </div>
         
     )

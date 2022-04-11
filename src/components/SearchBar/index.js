@@ -53,7 +53,6 @@ const SearchBar = () => {
                 />
                 <button type='button' className='search-button' >SEARCH</button>
             </form>
-
            {autoComplete.length && <div className='search-result-container' style={{ display: searchQuery ? 'block' : 'none' }}>
                 <p>Search Results: </p>
                     {autoComplete.map((artist) => <div className='searchResult' 
