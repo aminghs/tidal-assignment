@@ -52,7 +52,7 @@ const SearchBar = () => {
                     onChange={(e) => changeHandler(e.target.value)}
                     value={searchQuery}
                 />
-                <button type='button' className='search-button' >SEARCH</button>
+                <button type='button' className='search-button'>SEARCH</button>
             </form>
 
            {autoComplete.length && <div className='search-result-container' style={{ display: searchQuery ? 'block' : 'none' }}>

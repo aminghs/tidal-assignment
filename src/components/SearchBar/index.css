@@ -20,6 +20,7 @@ input[type=text] {
     padding: 12px 20px;
     background-color: rgb(36, 33, 33);
     margin-left: 50px;
+    position: absolute;
 }
 
 .search-button {
