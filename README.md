@@ -2,7 +2,7 @@
 
 Using the Deezer REST API (https://developers.deezer.com/api) perform the following
 actions and display the results using the attached designs. (You might need to create a
-free account with Deezer.)
+free account with Deezer.) Please install CORS Chrome extension to ignore the CORS error.
 The assignment will cover the following:
 
 1. Create an autocomplete search for artist that populates a option list while you
