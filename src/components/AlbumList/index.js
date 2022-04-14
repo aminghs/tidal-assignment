@@ -1,30 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
-import axios from 'axios'
 import Album from '../Album'
-import { BASE_URL } from '../../constants'
+import { getAlbums } from '../../api/albums'
 
 const AlbumList = ( props ) => {
 
     const [albums, setAlbums] = useState([]);
     const [tracks, setTracks] = useState('')
-
-    const prepareSearchQuery = (query) => {
-      const preUrl = `${BASE_URL}/search/album?q=${query}&limit=5`;
-      return encodeURI(preUrl)
-  }
-
-    const getData = async () => {
-        const URL = prepareSearchQuery(props.selectedArtist);
-        const response = await axios.get(URL).catch((error) => {
-            console.log('Error: ', error);
-        });
-        setAlbums(response.data.data)
-    }
+    const selectedArtist = props.selectedArtist
 
     useEffect(() => {
-        getData()
-    }, [props.selectedArtist]);
+        getAlbums(selectedArtist, setAlbums)
+    }, [selectedArtist]);
 
     const albumClick = (e) => {
         setTracks(e)

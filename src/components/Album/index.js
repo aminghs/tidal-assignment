@@ -1,21 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
-import axios from 'axios'
 import { secondToMinute } from '../../utils/secondToMinute'
+import { getAlbum } from '../../api/album'
 
 const Album = ( props ) => {
     const tracklist = props.selectedAlbum;
     const [album, setAlbum] = useState([])
 
-    const getData = async () => {
-        const response = await axios.get(tracklist).catch((error) => {
-            console.log('Error: ', error);
-        });
-        setAlbum(response.data.data)
-    }
-
     useEffect(() => {
-        getData()
+        getAlbum(tracklist, setAlbum)
     }, [tracklist]);
 
     if (!album) {
