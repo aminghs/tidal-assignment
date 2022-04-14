@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
-import axios from 'axios'
 import AlbumList from '../AlbumList';
-import { BASE_URL } from '../../constants'
+import { getArtists } from '../../api/artists';
 
 const SearchBar = () => {
 
@@ -19,22 +18,8 @@ const SearchBar = () => {
         setSearchQuery(e)
     }
 
-    const prepareSearchQuery = (query) => {
-        const preUrl = `${BASE_URL}/search/artist?q=${query}&limit=3`;
-        return encodeURI(preUrl)
-    }
-
-    const getData = async () => {
-        if (!searchQuery || searchQuery.trim() === '') return;
-        const URL = prepareSearchQuery(searchQuery);
-        const response = await axios.get(URL).catch((error) => {
-            console.log('Error: ', error);
-        });
-        setAutoComplete(response.data.data)
-    }
-
     useEffect(() => {
-        getData()
+        getArtists(searchQuery, setAutoComplete)
     }, [searchQuery]);
 
     const closeSearchResultContainer = (searchQuery) => {
