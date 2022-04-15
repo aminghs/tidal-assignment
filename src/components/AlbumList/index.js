@@ -12,11 +12,7 @@ const AlbumList = ( props ) => {
     useEffect(() => {
         getAlbums(selectedArtist, setAlbums)
     }, [selectedArtist]);
-
-    const albumClick = (e) => {
-        setTracks(e)
-    }
-
+    
     if (!albums) {
         return
     }
@@ -25,7 +21,7 @@ const AlbumList = ( props ) => {
         <div>
             <h1>Search result for {props.selectedArtist}</h1>
             <div className='albums-result-container'>
-                        {albums.map((album) => <div key={album.id} onClick={() => albumClick(album.tracklist)} >
+                        {albums.map((album) => <div key={album.id} onClick={(e) => setTracks(album.tracklist)} >
                             <img src={album.cover_medium} alt='Album-cover' />
                             <p className='artist-name'>{album.title}</p>
                         </div>)}
