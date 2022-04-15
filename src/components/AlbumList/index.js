@@ -3,23 +3,22 @@ import './index.css'
 import Album from '../Album'
 import { getAlbums } from '../../api/albums'
 
-const AlbumList = ( props ) => {
+const AlbumList = ( {selectedArtist} ) => {
 
     const [albums, setAlbums] = useState([]);
     const [tracks, setTracks] = useState('')
-    const selectedArtist = props.selectedArtist
 
     useEffect(() => {
         getAlbums(selectedArtist, setAlbums)
     }, [selectedArtist]);
-    
+
     if (!albums) {
         return
     }
 
     return ( 
         <div>
-            <h1>Search result for {props.selectedArtist}</h1>
+            <h1>Search result for {selectedArtist}</h1>
             <div className='albums-result-container'>
                         {albums.map((album) => <div key={album.id} onClick={(e) => setTracks(album.tracklist)} >
                             <img src={album.cover_medium} alt='Album-cover' />
