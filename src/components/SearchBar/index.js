@@ -7,7 +7,7 @@ const SearchBar = () => {
 
     const [searchQuery, setSearchQuery] = useState('')
     const [autoComplete, setAutoComplete] = useState([])
-    const [inputData, setInputData] = useState('')
+    const [selectedArtist, setSelectedArtist] = useState('')
 
     const changeHandler = (e) => {
         setSearchQuery(e)
@@ -23,7 +23,7 @@ const SearchBar = () => {
     }, [searchQuery]);
 
     const closeSearchResultContainer = (searchQuery) => {
-        setInputData(searchQuery)
+        setSelectedArtist(searchQuery)
         setSearchQuery('') 
     }
 
@@ -34,7 +34,8 @@ const SearchBar = () => {
                     placeholder='Search here'
                     type='text'
                     onChange={(e) => changeHandler(e.target.value)}
-                    value={searchQuery}/>
+                    value={searchQuery}
+                    onKeyDown={autoComplete}/>
                 <button type='button' className='search-button'>SEARCH</button>
             </form>
            {autoComplete && <div className='search-result-container' style={{ display: searchQuery ? 'block' : 'none' }}>
@@ -46,7 +47,7 @@ const SearchBar = () => {
                         <p>{artist.name}</p>
                     </div>)}
             </div>}
-            {inputData && <AlbumList selectedArtist={inputData} />}
+            {selectedArtist && <AlbumList selectedArtist={selectedArtist} />}
         </div>
     )
 }
