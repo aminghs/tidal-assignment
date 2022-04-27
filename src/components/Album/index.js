@@ -16,7 +16,7 @@ const Album = ( props ) => {
     }
 
     return (
-        <div>
+        <>
           <table className='tracks-table'>
             <thead>
               <tr>
@@ -38,7 +38,7 @@ const Album = ( props ) => {
             </tbody>
             )}
         </table>
-        </div>
+        </>
     )
 }
 export default Album;
