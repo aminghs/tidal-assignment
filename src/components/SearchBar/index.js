@@ -32,10 +32,11 @@ const SearchBar = () => {
             <form onSubmit={(e) => submitHandler(e.target.value)} >
                 <input
                     placeholder='Search here'
-                    type='text'
+                    type='search'
                     onChange={(e) => changeHandler(e.target.value)}
                     value={searchQuery}
-                    onKeyDown={autoComplete}/>
+                    autoFocus
+                    ariaAutocomplete='list'/>
                 <button type='button' className='search-button'>SEARCH</button>
             </form>
            {autoComplete && <div className='search-result-container' style={{ display: searchQuery ? 'block' : 'none' }}>

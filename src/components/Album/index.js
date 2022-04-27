@@ -21,10 +21,10 @@ const Album = ( props ) => {
             <thead>
               <tr>
                 <th>#</th>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Time</th>
-                <th>Released</th>
+                <th scope='col'>Title</th>
+                <th scope='col'>Artist</th>
+                <th scope='col'>Time</th>
+                <th scope='col'>Released</th>
               </tr>
             </thead>
             {album.map((track, index) =>  <tbody key={track.id}>
