@@ -21,7 +21,7 @@ const AlbumList = ( {selectedArtist} ) => {
             <h1>Search result for {selectedArtist}</h1>
             <div className='albums-result-container'>
                         {albums.map((album) => <div key={album.id} onClick={(e) => setTracks(album.tracklist)} >
-                            <img src={album.cover_medium} alt='Album-cover' />
+                            <img src={album.cover_medium} alt='Album-cover'/>
                             <p className='artist-name'>{album.title}</p>
                         </div>)}
             </div>
