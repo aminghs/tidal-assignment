@@ -14,3 +14,4 @@ export const getArtists = async (searchQuery, setAutoComplete) => {
     });
     setAutoComplete(response.data.data)
 }
+
