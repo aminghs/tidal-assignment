@@ -1,8 +1,10 @@
 import axios from "axios";
 
-export const getAlbum = async (tracklist, setAlbum) => {
-    const response = await axios.get(tracklist).catch((error) => {
-        console.log('Error: ', error);
+export const getAlbum = async (albumId, setAlbum) => {
+  const response = await axios
+    .get(`https://api.deezer.com/album/${albumId}`)
+    .catch((error) => {
+      console.log("Error: ", error);
     });
-    setAlbum(response.data.data)
-}
+  setAlbum(response.data);
+};
